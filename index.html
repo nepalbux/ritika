@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritika Bastakoti | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #777;
+            margin-bottom: 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .btn-dark {
+            background: var(--secondary-color);
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .hero-text h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+        
+        .hero-text p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 80%;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icons {
+            margin-top: 2rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* About Section */
+        #about {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 3rem;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Skills Section */
+        #skills {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .skill-card p {
+            color: #555;
+        }
+        
+        /* Projects Section */
+        #projects {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .project-info p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .project-links a {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .contact-container {
+            display: flex;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-details i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+                margin-left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Ritika<span> Bastakoti</span></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm Ritika Bastakoti</h1>
+                    <h2>Web Developer</h2>
+                    <p>I build exceptional digital experiences that are fast, accessible, and visually appealing. With a focus on responsive design and clean code, I create websites that work seamlessly across all devices.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://media-hosting.imagekit.io/41d755a7fcec48ec/Snapchat-1167383051.jpg?Expires=1840284963&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=DdhaJnAxxlY81N7msQgzPugD-iFufQiJEUp1S4F2g~DHU-d0z0oNn1n5ec0bIZ~ULqlnWby8qrTHBWCB7XFH8A7Qgx3QxBE7ry1O4MbMyQnNCmeY~5KA7lhM0H~LgnUqozbY3r2msLUN4J6sG4zjFglhu96zOy5vmxQGHivFPVE~uAoxwVy-JUIkWhA2jN3x4a8h80BMvxr~RIXZ2CcDYb~s--RhjfOIKTsWPfuZ3phi1lFW0GN5Ipernha5jH1ybNxa9gpQol0xQfUlnUXw9ehHwYF6mLEu90NQwR~CbLHG2n1BfLhEAwdnINBgFnIg7-LmZ6NVr9ExuIicJnckPA__" alt="Ritika Bastakoti">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title text-center">About Me</h2>
+            <p class="section-subtitle text-center">Get to know me better</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>I'm a passionate student of SOS HGS Gandaki. I am keen to learn about HTML, CSS, JavaScript, and Python.</p>
+                    <p>My journey in web development started when I completed my SEE(Secondary Education Examination), and I've been hooked ever since. I love turning complex problems into simple, beautiful, and intuitive designs.</p>
+                    <p>When I'm not coding, you can find me travelling, reading story books, or cooking some new sort of foods. I believe in continuous learning and staying updated with the latest web technologies.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://media-hosting.imagekit.io/10e43c031bf146b6/RITIKA%20.jpg?Expires=1840285244&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=kc~jgoijScAgyJ~qvdBPFLVRIJ73XH4hEwQAL1ouops6KqG~fOh~rsy7PIahP6CZ~7UybNpMJ1gm40qb6tiS~0-quuHKDAHQWucyG7kRTu0I9Pb3Tu9vOFqaVVGQCQoddurIjJx74KaVeRpYsT8oJejCwMQl1xfdKvmJHUPcOobkep7vSAGK92f30SaRDNT9sb9YDlSkdInurGPJFbbGwXLY0AlMKKovVILpnyLVdoyI6p3cea5-lYMee0xUTDkjGVergDj-Lzlgp591LGzRAEwUkKsc3EqhDsuv0keYxyV9ZkhpyTq4bkih88d4hAIAHsUtYWvrI-FZJrhiFVPKsg__" alt="About Ritika Bastakoti">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title text-center">My Skills</h2>
+            <p class="section-subtitle text-center">Technologies I work with</p>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, accessibility standards, and modern HTML5 features to create well-structured web pages.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Responsive design, animations, Flexbox, Grid, and preprocessors like SASS to create beautiful interfaces.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Modern ES6+ features, DOM manipulation, async programming, and functional programming concepts.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                    <p>Building interactive UIs with React hooks, context API, and state management solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                    <p>Version control, branching strategies, and collaborative workflows using Git and GitHub.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Creating websites that look great and function well on all devices and screen sizes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title text-center">My Projects</h2>
+            <p class="section-subtitle text-center">Some of my recent work</p>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://media-hosting.imagekit.io/d25f19d5dc07491c/PTC%20Nepal.png?Expires=1839235708&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PiAheoUdljSEXgBUaUSkta4TEYhWQJAA9eZ9~8bpIKlx5wmUn3gOxZPjXlYxwo5DEa2oAasb8Hwo1KsC2hpl0COlgYLm5M-MkWiJz~mFQcKP6z99RY4y3EZoNCVJaLXREWra3J3QBmxN64WoUK~ccg4bpMYI19Rh0jzJ5fNDNe0mHPG-a-~8zz8g0nT~Stpimv7eyRS5MQfX7t7aipwkg2~bNbzgUGxM4HwWdbZr3YS4HSQTV1Ac5~DjlXin6iv~r45vQfdcbkHbhE8l3F7UVaOlSRptH1zzb2RB533n1RJEYjDp3wegXeqVEwS0DME8tT241oVJecguEWVm9pdigg__">
+                    </div>
+                    <div class="project-info">
+                        <h3>Medical Website</h3>
+                        <p>A fully responsive medical consultation platform built with React, Redux, and Firebase for backend functionality.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">Live Demo</a>
+                            <a href="#" class="btn btn-dark">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://media-hosting.imagekit.io/c79c66c2852446b3/Sakshyam.png?Expires=1839235684&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=jqZkhlch~o3Jk3FEHHvTBtlIeig2i03ni46VWbw5AyK7qtD8PetDdY2eIs7RQx2JLbMO1Vzmq3kW0rZH1-l-q5Laynlq47soYGXIRcoH3pEbKGtyvYYS6sIMPa-9Ggz0hCCUrgAlbC2rUjFbIma612JC0cfn7wUtd864uYvFqQhX5JZoqb~NlEBvofOaE35KU4EpLf62do0xvmOSwXzOlotU16VbJiXjs2d0pFkSzmauv2IjPRTCmlk3WWjOTdfsJK2YwYsyne6RbOf3JO5FgFnLRgbQ5dykFAHcAs3h-6ibX1nt1zT6P~u1Ids6PGqtXmsFJQwzXsXXS8oDpsys0Q__">
+                    </div>
+                    <div class="project-info">
+                        <h3>Agro Product Website</h3>
+                        <p>A productivity website for managing agro products functionality and real-time updates.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">Live Demo</a>
+                            <a href="#" class="btn btn-dark">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://media-hosting.imagekit.io/e6d5462f96e94ff6/Somnath%20Guru.png?Expires=1839235677&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=dtf12VMloihNRRysmN-C90w2OfwbkAgyfg5R3R3rh5zIU6bzYBJihJPET9GEF3YljvkSOGsCta92DV1f3lAOR1yCvMnLgF-7ppcjZDSpL2KvUPj8XDcO9kaOJ3Aowf25fZlSiVUaTZ5XcPJf-nsuAfKxm4QT1WrD6xp9JB9xEtAyPSD~KC1XS2lJw6xxcgZYOCoJULBCChRLRnfo39pbMYZoQmEqNvMB4TtRuVwe2ACWbpm4b7pLEPwrmFTwekrK9owffRrk-oGvwBLvQ4-siE9dfeWYyjfGaFAxGapOx40dYzulwJJ2EJx8IWsucPqQQTaeKBeR5QNN~FAGMw9qgw__">
+                    </div>
+                    <div class="project-info">
+                        <h3>Astrology Website</h3>
+                        <p>A astrological application that displays current and forecasted future using a modern KP astrology API.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">Live Demo</a>
+                            <a href="#" class="btn btn-dark">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <p class="section-subtitle text-center">Have a project or want to chat? Feel free to contact me!</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>I'm currently available for freelance work or full-time positions. If you have a project that you want to get started or think you need my help with something, then get in touch.</p>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pokhara, Nepal</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>bastakotiritika65@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+977 061411779 / 889</span>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-red-500 rounded-full hover:bg-primary transition">
+<i class="ri-youtube-fill text-white"></i>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 Ritika. All rights reserved.</p>
+            <p>Designed & Developed by: Ritika Bastakoti</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
